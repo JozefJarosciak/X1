@@ -141,9 +141,10 @@ Enter your validator public key and the amount of XN you want to stake, then cli
 
 <img src="https://github.com/JozefJarosciak/X1/assets/3492464/b40c5c9c-8d3f-4262-8f3a-a9cd7525ec58" width="30%">
 
+
 Confirm the transaction in your wallet (note: this will deduct 100,000 XN from your wallet):
 
-<img src="https://github.com/JozefJarosciak/X1/assets/3492464/89a6d958-c9f4-46f0-bc05-faea227173e6" width="50%">
+![image](https://github.com/JozefJarosciak/X1/assets/3492464/83c075a5-835a-4390-8f32-e044dc6bd8c1)
 
 
 Verify that your validator is registered by looking up your validator ID on the PWA explorer at:
