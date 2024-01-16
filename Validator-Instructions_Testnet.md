@@ -194,6 +194,79 @@ When completed, you will see your logo and name on the list of validators:
 
 
 
-### Step 10: Congratulations
-There is no Step 10 - Congratulations, you are now running an X1 validator node! Make sure to keep your node up and running 24 hours a day. 
+### Step 10: Run as a Service
+
+This last step is not required, but if you want to run X1 Validator as a service that automatically starts on boot, and restarts on failure, you can follow the below instructions.
+<i>Note: This method is not recommended, as it exposes your validator key password in a flat file.</i>
+
+Create a new file 'automate_x1.sh'
+
+```bash
+sudo nano /root/go-x1/automate_x1.sh
+```
+
+Add the following content. Replace YOUR_PUBLIC_KEY_VALIDATOR_PASSWORD without your validator key password.
+
+```bash
+#!/usr/bin/expect
+set timeout -1
+spawn /root/go-x1/build/x1 --testnet --validator.id YOURID --validator.pubkey 0xc004....
+expect "Passphrase:"
+send -- "YOUR_PUBLIC_KEY_VALIDATOR_PASSWORD\r"
+expect eof
+```
+
+<img src="https://github.com/JozefJarosciak/X1/assets/3492464/aa10e679-c0c6-4f88-ac43-6efac68d2798" width="50%">
+
+Now, let's create a service file a new file 'x1-testnet.service':
+
+```bash
+sudo nano /etc/systemd/system/x1-testnet.service
+```
+
+Add the following content:
+
+```bash
+[Unit]
+Description=x1-testnet service
+After=network.target
+
+[Service]
+Type=simple
+User=root
+ExecStart=/usr/bin/expect /root/go-x1/automate_x1.sh
+WorkingDirectory=/root/go-x1
+
+[Install]
+WantedBy=multi-user.target
+```
+
+<img src="https://github.com/JozefJarosciak/X1/assets/3492464/ca9bf1ca-3f58-4bd2-a095-fe60a5e31d8e" width="50%">
+
+
+Ensure 'expect' is installed:
+```bash
+sudo apt-get install expect
+```
+
+Now, reload services, enable the new service and start it.
+```bash
+sudo systemctl daemon-reload
+sudo systemctl enable x1-testnet.service
+sudo systemctl start x1-testnet.service
+```
+
+Now you can test it, to ensure it's running:
+```bash
+sudo systemctl status x1-testnet.service
+```
+
+You should see the system as active and running:
+
+<img src="https://github.com/JozefJarosciak/X1/assets/3492464/964f9ae8-13aa-49cc-9f96-57bb1a2cb917" width="50%">
+
+
+
+### The End
+Congratulations, you are now running an X1 validator node! Make sure to keep your node up and running 24 hours a day. 
 
