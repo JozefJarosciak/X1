@@ -96,15 +96,18 @@ x1 --testnet --syncmode snap --xenblocks-endpoint ws://xenblocks.io:6668
 
 Be aware that the completion of the above step may take a while, as the server needs time to synchronize data. During this period, you can monitor the progress, which is illustrated in the provided screenshot. After the synchronization is fully complete, the status displayed on the screen will appear as follows:
 
-![image](https://github.com/JozefJarosciak/X1/assets/3492464/d730ae85-5b84-418f-9d68-860678859091)
+<img src="https://github.com/JozefJarosciak/X1/assets/3492464/d730ae85-5b84-418f-9d68-860678859091" width="50%">
 
+Note:
+<i>
 If operating an X1 node in read-only mode meets your needs for now, you can conclude by following these instructions here, as your server setup is now complete.
 
 I highly recommend keeping the read-only node running (while waiting for the airdrop) or just running it in the read-only node permanently. Running a read-only blockchain node plays a crucial and highly valuable role in supporting the X1 blockchain community. By doing so, you contribute to the network's robustness and decentralization. A read-only node helps in maintaining a copy of the blockchain, ensuring data integrity and consistency across the network and this improves the network's resilience against potential attacks and failures, as multiple copies of the blockchain data exist. By participating in this way, you're not only supporting the underlying infrastructure of the blockchain but also fostering a more trustful and transparent environment for all users, but you may also be rewarded by XN airdrops (update on this soon).
+</i>
 
 If your goal is to operate an X1 Testnet Validator node and you have confirmed that your validator wallet has enough XN, you should press CTRL-C to terminate the active X1 service and proceed to STEP 6.
-![image](https://github.com/JozefJarosciak/X1/assets/3492464/1966c91c-99ff-4fa3-87ad-8347b8d840f0)
 
+<img src="https://github.com/JozefJarosciak/X1/assets/3492464/1966c91c-99ff-4fa3-87ad-8347b8d840f0" width="50%">
 
 
 
