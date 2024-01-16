@@ -31,6 +31,14 @@ If you want to create a dedicated and brand new software X1 Testnet Validator Me
 For additional guidance, visit [Metamask Support](https://support.metamask.io/hc/en-us/articles/360015289452-How-to-add-accounts-in-your-wallet).
 
 
+Switch your Metamask to X1 Testnet, if you do not have the X1 Tesnet Network configured in Metamask, add the following RPC:
+Network name: X1 Testnet
+New RPC URL: https://x1-testnet.xen.network/
+Chain ID: 204005
+Currency symbol: XN
+Block explorer URL: https://explorer.x1-testnet.xen.network/
+
+
 
 ### Step 3: Fill up the X1 Testnet Validator Application Form
 To join as a block producer/validator on Testnet, you need 100,000 Test XN tokens (plus a little more to run the staking transaction).
