@@ -147,7 +147,7 @@ Click the "Connect wallet" button and connect to your validator wallet.
 
 Enter your validator public key and the amount of XN you want to stake, then click "Write".
 
-<img src="https://github.com/JozefJarosciak/X1/assets/3492464/b40c5c9c-8d3f-4262-8f3a-a9cd7525ec58" width="30%">
+<img src="https://github.com/JozefJarosciak/X1/assets/3492464/b40c5c9c-8d3f-4262-8f3a-a9cd7525ec58" width="60%">
 
 
 Confirm the transaction in your wallet (note: this will deduct 100,000 XN from your wallet):
