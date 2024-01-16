@@ -111,24 +111,80 @@ If your goal is to operate an X1 Testnet Validator node and you have confirmed t
 
 
 
-### Step 6: Configure X1 Validator Node
+### Step 6: Create a new validator key
 
-Further configuration steps will be provided here.
+To create a validator private key to sign consensus messages, use the below command.
+After entering the command, you will be prompted to enter a password—use a strong one! 
+You can, for example, use a password manager to generate a strong password to secure your wallet.
+
 ```bash
-./build/x1 --testnet  --validator.id 19 --validator.pubkey 0xc004569809f6e889eaaeba2e8ffe85e5e668142ea74a18e3f9aa888be2f6243047d03cd6d7cb8e14288a78d46c580a74690704bc3e1e85ce12753611761e74943bb4 --xenblocks-endpoint ws://xenblocks.io:6668 --gcmode full --syncmode snap
+x1 validator new
 ```
 
+<img src="https://github.com/JozefJarosciak/X1/assets/3492464/8b18bb33-53bb-4908-b1a6-2c799b61d645" width="50%">
 
-### Step 6: Register Icon
+Remember to make a note of the validator public key (indicated by the red arrow in the image above, as it will be required in STEP 7) and also make sure to securely save your validator key password (you will need this password each time you start the validator).
+
+
+
+### Step 7: Stake 100,000 XN using Metamask
+
+Navigate to the SFC Contract on the explorer:
+https://explorer.x1-testnet.xen.network/address/0xFC00FACE00000000000000000000000000000000/write-contract#address-tabs
+
+
+Click the "Connect wallet" button and connect to your validator wallet.
+
+<img src="https://github.com/JozefJarosciak/X1/assets/3492464/8cfaaeb2-f4fe-46c0-8405-edecbc0f6b2d" width="50%">
+
+Enter your validator public key and the amount of XN you want to stake, then click "Write".
+
+<img src="https://github.com/JozefJarosciak/X1/assets/3492464/b40c5c9c-8d3f-4262-8f3a-a9cd7525ec58" width="30%">
+
+Confirm the transaction in your wallet (note: this will deduct 100,000 XN from your wallet):
+
+<img src="https://github.com/JozefJarosciak/X1/assets/3492464/89a6d958-c9f4-46f0-bc05-faea227173e6" width="50%">
+
+
+Verify that your validator is registered by looking up your validator ID on the PWA explorer at:
+https://pwa-explorer.x1-testnet.xen.network/staking
+
+<img src="https://github.com/JozefJarosciak/X1/assets/3492464/c8b3b702-e363-4ab8-9d7a-7d65c6dca514" width="50%">
+
+
+
+### Step 8: Start your X1 Validator Node
+
+Ensure your node is stopped, and add the --validator.id and --validator.pubkey flags to your node's command line:
+
+```bash
+x1 --testnet --validator.id VALIDATOR_ID --validator.pubkey VALIDATOR_PUBKEY --xenblocks-endpoint ws://xenblocks.io:6668 --gcmode full --syncmode snap
+```
+Note: You can also attach --validator.password ~/.x1/.password
+
+For example, if you're the validator number 19 and your public key looks something like this: 0xc004569...1e74943bb4. You'd use the following command:
+
+```bash
+./build/x1 --testnet  --validator.id 19 --validator.pubkey 0xc004569...1e74943bb4 --xenblocks-endpoint ws://xenblocks.io:6668 --gcmode full --syncmode snap
+```
+
+Once fully synchronized and running, you'd see something like this on your screen:
+
+<img src="https://github.com/JozefJarosciak/X1/assets/3492464/de820bca-84eb-4d49-8b71-f33acd0d24e1" width="50%">
+
+
+### Step 9: Register Validator Name and Icon
 
 Register your validator icon using the following format and submit it to the specified endpoint.
+To do so, follow these instructions:
+https://docs.xen.network/x1-validator-info/
 
-```json
-{
-  "name": "xencrypto1",
-  "logoUrl": "https://xen.network/XEN-logo-square-dark%20512x512.png",
-  "website": "https://xen.network",
-  "contact": "https://t.me/XENCryptoTalk"
-}
-```
+When completed, you will see your logo and name on the list of validators:
+
+<img src="https://github.com/JozefJarosciak/X1/assets/3492464/d633c4fa-8b7f-4c48-be15-dc707c2750d1" width="50%">
+
+
+
+### Step 10: Congratulations
+There is no Step 10 - Congratulations, you are now running an X1 validator node! Make sure to keep your node up and running 24 hours a day. 
 
