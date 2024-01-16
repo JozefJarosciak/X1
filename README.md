@@ -10,15 +10,15 @@ As the X1 blockchain progresses toward its Mainnet launch, we will update this r
 
 
 ## How-To: Set Up Your X1 Testnet Validator 
-- **Testnet Instructions:** [https://github.com/JozefJarosciak/X1/blob/main/Validator-Instructions_Testnet.md)
+- **Testnet Instructions:** https://github.com/JozefJarosciak/X1/blob/main/Validator-Instructions_Testnet.md
 
 
 ## Other URLs
 
-- **X1 Testnet Explorer:** [https://pwa-explorer.x1-testnet.xen.network/](https://pwa-explorer.x1-testnet.xen.network/)
-- **X1 Blockchain Source Code and Instructions:** [https://github.com/FairCrypto/go-x1/](https://github.com/FairCrypto/go-x1/)
-- **XEN Official Website:** [https://xen.network/](https://xen.network/)
-- **XEN Statistics:** [https://xen.pub](https://xen.pub)
+- **X1 Testnet Explorer:** https://pwa-explorer.x1-testnet.xen.network/
+- **X1 Blockchain Source Code and Instructions:** https://github.com/FairCrypto/go-x1/
+- **XEN Official Website:** https://xen.network/
+- **XEN Statistics:** https://xen.pub
 
 ---
 
