@@ -2,7 +2,7 @@
 
 ## Requirements:
 - 🐧 Advanced or Expert Linux Knowledge (Ubuntu preferred)
-- ☁️ Access to a personal Ubuntu server or a cloud instance (like AWS Lightsail, used in this tutorial)
+- ☁️ Access to a personal Ubuntu server or an Ubuntu cloud instance
 - 🗣️ Access to Metamask
 
 
