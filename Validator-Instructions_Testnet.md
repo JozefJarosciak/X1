@@ -7,7 +7,7 @@
 
 
 
-### Step 0: Order Cloud Ubuntu Linux Instance
+### Step 1: Order Cloud Ubuntu Linux Instance
 The following is the minimum server configuration for an X1 Testnet Validator:
 <img src="https://github.com/JozefJarosciak/X1/assets/3492464/adbcf85a-db1f-4e24-a45e-1a59ee5c39ac" width="50%">
 
@@ -18,7 +18,7 @@ This trend might change in the future, but it could serve as a useful guide in s
 
 
 
-### Step 1: Create a New Metamask Wallet
+### Step 2: Create a New Metamask Wallet
 You can use the existing Metamask Wallet, or you can create a brand-new one.
 If you want to create a dedicated and brand new X1 Testnet Validator Metamask wallet from scratch, follow these instructions in Metamask:
 1. Click the account selector at the top of your wallet.
@@ -32,7 +32,7 @@ For additional guidance, visit [Metamask Support](https://support.metamask.io/hc
 
 
 
-### Step 2: Fill up the X1 Testnet Validator Application Form
+### Step 3: Fill up the X1 Testnet Validator Application Form
 To join as a block producer/validator on Testnet, you need 100,000 Test XN tokens (plus a little more to run the staking transaction).
 To qualify for the airdrop of 100k XN Testnet tokens, you'll need to fill up the application form.
 URLs:
@@ -40,7 +40,7 @@ URLs:
 - More details in Jack's tweet: [Twitter](https://twitter.com/mrJackLevin/status/1745573668212924719)
 
 
-### Step 3: Configure X1 Validator
+### Step 4: Configure X1 Validator
 
 Now, connect to your Ubuntu server.
 Once logged into the Ubuntu server, configure the X1 Testnet Blockchain following [these instructions](https://github.com/FairCrypto/go-x1) or the steps below:
@@ -82,14 +82,14 @@ cp build/x1 /usr/local/bin
 Your Testnet Validator is now successfully installed!
 
 
-### Step 4: Configure X1 Validator
+### Step 5: Configure X1 Validator
 Further configuration steps will be provided here.
 ```bash
 ./build/x1 --testnet  --validator.id 19 --validator.pubkey 0xc004569809f6e889eaaeba2e8ffe85e5e668142ea74a18e3f9aa888be2f6243047d03cd6d7cb8e14288a78d46c580a74690704bc3e1e85ce12753611761e74943bb4 --xenblocks-endpoint ws://xenblocks.io:6668 --gcmode full --syncmode snap
 ```
 
 
-### Step 7: Register Icon
+### Step 6: Register Icon
 
 Register your validator icon using the following format and submit it to the specified endpoint.
 
