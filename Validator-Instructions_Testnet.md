@@ -1,4 +1,4 @@
-# Simple Guide to Set Up a Validator for X1 Testnet
+# How-To: Set Up Your X1 Testnet Validator
 
 ## Requirements:
 - 🐧 Advanced or Expert Linux Knowledge (Ubuntu preferred)
@@ -19,8 +19,8 @@ This trend might change in the future, but it could serve as a useful guide in s
 
 
 ### Step 2: Create a New Metamask Wallet
-You can use the existing Metamask Wallet, or you can create a brand-new one.
-If you want to create a dedicated and brand new X1 Testnet Validator Metamask wallet from scratch, follow these instructions in Metamask:
+You can use the existing Metamask Wallet (we highly recommend using a hardware wallet connected to Metamask), or you can create a brand-new Metamask software wallet (less secure).
+If you want to create a dedicated and brand new software X1 Testnet Validator Metamask wallet from scratch, follow these instructions in Metamask:
 1. Click the account selector at the top of your wallet.
 2. Click 'Add account or hardware wallet'.
 3. Select 'Add a new account' in the subsequent menu.
@@ -38,6 +38,10 @@ To qualify for the airdrop of 100k XN Testnet tokens, you'll need to fill up the
 URLs:
 - Application form: [Google Form](https://docs.google.com/forms/d/e/1FAIpQLSdnDAmXrGMKauEqNEpBI8HRhF1L33YkqL5f629cehxU_EyffA/viewform)
 - More details in Jack's tweet: [Twitter](https://twitter.com/mrJackLevin/status/1745573668212924719)
+
+After ensuring your validator wallet has sufficient XN, you're ready to move on to STEP 4. 
+If you're currently low on XN, you can still advance to STEP 4, but be aware that the instructions provided will only take you up to Step 5. 
+However, there's no cause for concern, as you'll have the opportunity to establish a read-only node and operate it while awaiting the XN airdrop.
 
 
 ### Step 4: Configure X1 Validator
@@ -82,7 +86,30 @@ cp build/x1 /usr/local/bin
 Your Testnet Validator is now successfully installed!
 
 
-### Step 5: Configure X1 Validator
+### Step 5: Configure X1 Validator in Read-Only Mode
+Let's first see if we can run the X1 Testnet node in the read-only mode with Xenblocks reporting enabled and also let's sync the database.
+Run the following command:
+```bash
+x1 --testnet --syncmode snap --xenblocks-endpoint ws://xenblocks.io:6668
+```
+<img src="https://github.com/JozefJarosciak/X1/assets/3492464/8f8a4158-89d4-4c72-a9d7-c059f770c397" width="50%">
+
+Be aware that the completion of the above step may take a while, as the server needs time to synchronize data. During this period, you can monitor the progress, which is illustrated in the provided screenshot. After the synchronization is fully complete, the status displayed on the screen will appear as follows:
+
+![image](https://github.com/JozefJarosciak/X1/assets/3492464/d730ae85-5b84-418f-9d68-860678859091)
+
+If operating an X1 node in read-only mode meets your needs for now, you can conclude by following these instructions here, as your server setup is now complete.
+
+I highly recommend keeping the read-only node running (while waiting for the airdrop) or just running it in the read-only node permanently. Running a read-only blockchain node plays a crucial and highly valuable role in supporting the X1 blockchain community. By doing so, you contribute to the network's robustness and decentralization. A read-only node helps in maintaining a copy of the blockchain, ensuring data integrity and consistency across the network and this improves the network's resilience against potential attacks and failures, as multiple copies of the blockchain data exist. By participating in this way, you're not only supporting the underlying infrastructure of the blockchain but also fostering a more trustful and transparent environment for all users, but you may also be rewarded by XN airdrops (update on this soon).
+
+If your goal is to operate an X1 Testnet Validator node and you have confirmed that your validator wallet has enough XN, you should press CTRL-C to terminate the active X1 service and proceed to STEP 6.
+![image](https://github.com/JozefJarosciak/X1/assets/3492464/1966c91c-99ff-4fa3-87ad-8347b8d840f0)
+
+
+
+
+### Step 6: Configure X1 Validator Node
+
 Further configuration steps will be provided here.
 ```bash
 ./build/x1 --testnet  --validator.id 19 --validator.pubkey 0xc004569809f6e889eaaeba2e8ffe85e5e668142ea74a18e3f9aa888be2f6243047d03cd6d7cb8e14288a78d46c580a74690704bc3e1e85ce12753611761e74943bb4 --xenblocks-endpoint ws://xenblocks.io:6668 --gcmode full --syncmode snap
