@@ -14,12 +14,14 @@
 - [Step 10: Run as a Service](#step-10-run-as-a-service)
 - [The End](#the-end)
 
+<br><br><br>
+
 ### Step 0:  Requirements:
 - 🐧 Advanced or Expert Linux Knowledge (Ubuntu preferred)
 - ☁️ Access to a personal Ubuntu server or an Ubuntu cloud instance
 - 🗣️ Access to Metamask
 
-
+<br><hr><br>
 
 ### Step 1: Order Cloud Ubuntu Linux Instance
 The following is the minimum server configuration for an X1 Testnet Validator:
@@ -30,7 +32,7 @@ Nevertheless, referencing Ethereum Mainnet Statistics reveals that Amazon AWS, H
 This trend might change in the future, but it could serve as a useful guide in selecting a suitable provider:
 <img src="https://github.com/JozefJarosciak/X1/assets/3492464/07c70924-9baf-48b0-a85f-06baa50be658" width="50%">
 
-
+<br><hr><br>
 
 ### Step 2: Create a New Metamask Wallet
 You can use the existing Metamask Wallet (we highly recommend using a hardware wallet connected to Metamask), or you can create a brand-new Metamask software wallet (less secure).
@@ -52,7 +54,7 @@ Switch your Metamask to X1 Testnet, if you do not have the X1 Tesnet Network con
 * Currency symbol: XN
 * Block explorer URL: https://explorer.x1-testnet.xen.network/
 
-
+<br><hr><br>
 
 ### Step 3: Fill up the X1 Testnet Validator Application Form
 To join as a block producer/validator on Testnet, you need 100,000 Test XN tokens (plus a little more to run the staking transaction).
@@ -65,6 +67,7 @@ After ensuring your validator wallet has sufficient XN, you're ready to move on 
 If you're currently low on XN, you can still advance to STEP 4, but be aware that the instructions provided will only take you up to Step 5. 
 However, there's no cause for concern, as you'll have the opportunity to establish a read-only node and operate it while awaiting the XN airdrop.
 
+<br><hr><br>
 
 ### Step 4: Configure X1 Validator
 
@@ -107,6 +110,7 @@ cp build/x1 /usr/local/bin
 
 Your Testnet Validator is now successfully installed!
 
+<br><hr><br>
 
 ### Step 5: Configure X1 Validator in Read-Only Mode
 Let's first see if we can run the X1 Testnet node in the read-only mode with Xenblocks reporting enabled and also let's sync the database.
@@ -131,7 +135,7 @@ If your goal is to operate an X1 Testnet Validator node and you have confirmed t
 
 <img src="https://github.com/JozefJarosciak/X1/assets/3492464/1966c91c-99ff-4fa3-87ad-8347b8d840f0" width="50%">
 
-
+<br><hr><br>
 
 ### Step 6: Create a new validator key
 
@@ -147,7 +151,7 @@ x1 validator new
 
 Remember to make a note of the validator public key (indicated by the red arrow in the image above, as it will be required in STEP 7) and also make sure to securely save your validator key password (you will need this password each time you start the validator).
 
-
+<br><hr><br>
 
 ### Step 7: Stake 100,000 XN using Metamask
 
@@ -174,7 +178,7 @@ https://pwa-explorer.x1-testnet.xen.network/staking
 
 <img src="https://github.com/JozefJarosciak/X1/assets/3492464/c8b3b702-e363-4ab8-9d7a-7d65c6dca514" width="50%">
 
-
+<br><hr><br>
 
 ### Step 8: Start your X1 Validator Node
 
@@ -195,6 +199,7 @@ Once fully synchronized and running, you'd see something like this on your scree
 
 <img src="https://github.com/JozefJarosciak/X1/assets/3492464/de820bca-84eb-4d49-8b71-f33acd0d24e1" width="50%">
 
+<br><hr><br>
 
 ### Step 9: Register Validator Name and Icon
 
@@ -206,7 +211,7 @@ When completed, you will see your logo and name on the list of validators:
 
 <img src="https://github.com/JozefJarosciak/X1/assets/3492464/d633c4fa-8b7f-4c48-be15-dc707c2750d1" width="50%">
 
-
+<br><hr><br>
 
 ### Step 10: Run as a Service
 
@@ -279,7 +284,7 @@ You should see the system as active and running:
 
 <img src="https://github.com/JozefJarosciak/X1/assets/3492464/964f9ae8-13aa-49cc-9f96-57bb1a2cb917" width="50%">
 
-
+<br><hr><br>
 
 ### The End
 Congratulations, you are now running an X1 validator node! Make sure to keep your node up and running 24 hours a day. 
