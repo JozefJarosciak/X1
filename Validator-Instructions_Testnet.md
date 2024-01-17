@@ -208,7 +208,7 @@ To register your validator's name and icon on the X1 Testnet, follow these detai
    <img src="https://github.com/JozefJarosciak/X1/assets/3492464/d3ba09b1-3389-437a-a290-8fa9f5799806" width="50%">
 
 3. **Save and Upload the Image:**
-   Save the image in PNG format. For instance, the image might be named `x1-val-log.png`. Upload the image to a web server or an online location that allows direct file linking. For example, the image has been uploaded to `https://xen.pub/images/x1-val-log.png`, making it accessible via a web browser.
+   Save the image in PNG format. For instance, the image might be named `logo.png`. Upload the image to a web server or an online location that allows direct file linking. For example, the image has been uploaded to `https://xen.pub/images/logo.png`, making it accessible via a web browser.
 
 4. **Create a JSON Configuration File:**
    You will need to create a JSON file containing the validator's name, logo URL, website, and contact information. This file will later be uploaded to the X1 Testnet smart contract.
@@ -225,10 +225,10 @@ To register your validator's name and icon on the X1 Testnet, follow these detai
    Example JSON configuration:
    ```json
    {
-     "name": "XenPub_1", 
-     "logoUrl": "https://xen.pub/images/x1-val-log.png",
-     "website": "https://xen.pub",
-     "contact": "https://t.me/xenpub"
+     "name": "Validator_1", 
+     "logoUrl": "https://yourwebsite.com/images/logo.png",
+     "website": "https://yourwebsite.com",
+     "contact": "https://t.me/your_twitter_name"
    }
    ```
 
