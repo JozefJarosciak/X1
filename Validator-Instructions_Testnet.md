@@ -1,6 +1,20 @@
 # How-To: Set Up Your X1 Testnet Validator
 
-## Requirements:
+## Table of Contents
+- [Step 0: Requirements](#step-0--requirements)
+- [Step 1: Order Cloud Ubuntu Linux Instance](#step-1-order-cloud-ubuntu-linux-instance)
+- [Step 2: Create a New Metamask Wallet](#step-2-create-a-new-metamask-wallet)
+- [Step 3: Fill up the X1 Testnet Validator Application Form](#step-3-fill-up-the-x1-testnet-validator-application-form)
+- [Step 4: Configure X1 Validator](#step-4-configure-x1-validator)
+- [Step 5: Configure X1 Validator in Read-Only Mode](#step-5-configure-x1-validator-in-read-only-mode)
+- [Step 6: Create a new validator key](#step-6-create-a-new-validator-key)
+- [Step 7: Stake 100,000 XN using Metamask](#step-7-stake-100000-xn-using-metamask)
+- [Step 8: Start your X1 Validator Node](#step-8-start-your-x1-validator-node)
+- [Step 9: Register Validator Name and Icon](#step-9-register-validator-name-and-icon)
+- [Step 10: Run as a Service](#step-10-run-as-a-service)
+- [The End](#the-end)
+
+### Step 0:  Requirements:
 - 🐧 Advanced or Expert Linux Knowledge (Ubuntu preferred)
 - ☁️ Access to a personal Ubuntu server or an Ubuntu cloud instance
 - 🗣️ Access to Metamask
