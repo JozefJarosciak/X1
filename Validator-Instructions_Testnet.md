@@ -232,6 +232,8 @@ To register your validator's name and icon on the X1 Testnet, follow these detai
    }
    ```
 
+   Important: As a name of the server, do not include any special characters or spaces (e.g. XenPub_1 is valid, but something like "🐧XenPub #1" would not work).
+
 5. **Upload the JSON File:**
    Save the JSON file with a `.json` extension and upload it to your web server. In this example, the file is available at `https://xen.pub/other/x1-validator-1.json`, accessible to anyone with a web browser.
 
