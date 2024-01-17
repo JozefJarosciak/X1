@@ -287,3 +287,5 @@ You should see the system as active and running:
 ### The End
 Congratulations, you are now running an X1 validator node! Make sure to keep your node up and running 24 hours a day. 
 
+Fellow Xenians, if this guide helped, consider donation: https://xen.pub/donate.php
+
