@@ -201,15 +201,54 @@ Once fully synchronized and running, you'd see something like this on your scree
 
 ### Step 9: Register Validator Name and Icon
 
-Register your validator icon using the following format and submit it to the specified endpoint.
-To do so, follow these instructions:
-https://docs.xen.network/x1-validator-info/
+To register your validator's name and icon on the X1 Testnet, follow these detailed instructions. Note that you will require a web server to host the image file.
 
-When completed, you will see your logo and name on the list of validators:
+1. **Create an Icon Image:**
+   Design a 100x100 px image with a transparent background. For example, the following logo was created using the Snagit Editor:
+   <img src="https://github.com/JozefJarosciak/X1/assets/3492464/d3ba09b1-3389-437a-a290-8fa9f5799806" width="50%">
 
-<img src="https://github.com/JozefJarosciak/X1/assets/3492464/d633c4fa-8b7f-4c48-be15-dc707c2750d1" width="50%">
+3. **Save and Upload the Image:**
+   Save the image in PNG format. For instance, the image might be named `x1-val-log.png`. Upload the image to a web server or an online location that allows direct file linking. For example, the image has been uploaded to `https://xen.pub/images/x1-val-log.png`, making it accessible via a web browser.
 
-<br><hr><br>
+4. **Create a JSON Configuration File:**
+   You will need to create a JSON file containing the validator's name, logo URL, website, and contact information. This file will later be uploaded to the X1 Testnet smart contract.
+
+   Template for JSON file:
+   ```json
+   {
+     "name": "VALIDATOR_NAME", /* Name of the validator */
+     "logoUrl": "LOGO_URL", /* Validator logo (PNG|JPEG|SVG) - 100px x 100px */
+     "website": "WEBSITE_URL", /* Website URL */
+     "contact": "CONTACT_URL" /* Contact URL */
+   }
+   ```
+   Example JSON configuration:
+   ```json
+   {
+     "name": "XenPub_1", 
+     "logoUrl": "https://xen.pub/images/x1-val-log.png",
+     "website": "https://xen.pub",
+     "contact": "https://t.me/xenpub"
+   }
+   ```
+
+5. **Upload the JSON File:**
+   Save the JSON file with a `.json` extension and upload it to your web server. In this example, the file is available at `https://xen.pub/other/x1-validator-1.json`, accessible to anyone with a web browser.
+
+6. **Update the X1 Testnet Smart Contract:**
+   Visit the URL: [X1 Testnet Smart Contract](https://explorer.x1-testnet.xen.network/address/0x891416e8bDB4437d4D0D303781A3828262220581/write-proxy#address-tabs).
+   Connect your Metamask wallet and navigate to section number 5 (`updateInfo`):
+
+   <img src="https://github.com/JozefJarosciak/X1/assets/3492464/2af1ab65-6087-4892-affc-fcd87a3938e1" width="50%">
+
+   Enter the URL of your JSON file (e.g., `https://xen.pub/other/x1-validator-1.json`) and press 'Write':
+
+   <img src="https://github.com/JozefJarosciak/X1/assets/3492464/26ca60d4-853b-4164-b379-92585a404bbc" width="50%">
+  
+   Upon completion, your validator's logo and name will be displayed on the list of validators at [X1 Testnet Staking Explorer](https://pwa-explorer.x1-testnet.xen.network/staking).
+
+   <img src="https://github.com/JozefJarosciak/X1/assets/3492464/d633c4fa-8b7f-4c48-be15-dc707c2750d1" width="50%">
+   
 
 ### Step 10: Run as a Service
 
