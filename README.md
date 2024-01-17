@@ -2,14 +2,16 @@
 
 ## Overview
 
-This repository is dedicated to hosting comprehensive instructions for setting up and running both read-only and full validator nodes on the X1 blockchain. 
+This repository is dedicated to hosting instructions for setting up and running both read-only and full validator nodes on the X1 blockchain. 
 
-The primary focus, at present, is on the Testnet phase of the X1 blockchain. Detailed guidelines cater to users interested in participating in this phase, either by running a read-only node for network support or by setting up a full validator node for more active involvement. 
+The focus, at present, is to provide detailed guidelines for the Testnet phase of the X1 blockchain.
 
-As the X1 blockchain progresses toward its Mainnet launch, we will update this repository with relevant instructions and resources to facilitate an effortless transition and set up for the Mainnet.
+As the X1 blockchain progresses toward its Mainnet launch, we will update this repository with relevant instructions.
 
 
 ## How-To: Set Up Your X1 Testnet Validator 
+Detailed instructions for the read-only node and full validator node (for more active involvement) are posted at the link below:
+
 - **Testnet Instructions:** https://github.com/JozefJarosciak/X1/blob/main/Validator-Instructions_Testnet.md
 
 
