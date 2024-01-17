@@ -165,13 +165,11 @@ Click the "Connect wallet" button and connect to your validator wallet.
 
 Enter your validator public key and the amount of XN you want to stake, then click "Write".
 
-<img src="https://github.com/JozefJarosciak/X1/assets/3492464/b40c5c9c-8d3f-4262-8f3a-a9cd7525ec58" width="60%">
-
+<img src="https://github.com/JozefJarosciak/X1/assets/3492464/a1af478d-0342-4aba-8ab1-98c48d34b75d" width="50%">
 
 Confirm the transaction in your wallet (note: this will deduct 100,000 XN from your wallet):
 
 ![image](https://github.com/JozefJarosciak/X1/assets/3492464/83c075a5-835a-4390-8f32-e044dc6bd8c1)
-
 
 Verify that your validator is registered by looking up your validator ID on the PWA explorer at:
 https://pwa-explorer.x1-testnet.xen.network/staking
