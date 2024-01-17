@@ -8,12 +8,14 @@ The focus, at present, is to provide detailed guidelines for the Testnet phase o
 
 As the X1 blockchain progresses toward its Mainnet launch, we will update this repository with relevant instructions.
 
+<br><br><br>
 
 ## How-To: Set Up Your X1 Testnet Validator 
 Detailed instructions for the read-only node and full validator node (for more active involvement) are posted at the link below:
 
 - **Testnet Instructions:** https://github.com/JozefJarosciak/X1/blob/main/Validator-Instructions_Testnet.md
 
+<br><br><br>
 
 ## Other URLs
 
