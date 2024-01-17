@@ -208,7 +208,7 @@ To register your validator's name and icon on the X1 Testnet, follow these detai
    <img src="https://github.com/JozefJarosciak/X1/assets/3492464/d3ba09b1-3389-437a-a290-8fa9f5799806" width="50%">
 
 3. **Save and Upload the Image:**
-   Save the image in PNG format. For instance, the image might be named `logo.png`. Upload the image to a web server or an online location that allows direct file linking. For example, the image has been uploaded to `https://xen.pub/images/logo.png`, making it accessible via a web browser.
+   Save the image in PNG format. For instance, the image might be named `logo.png`. Upload the image to a web server or an online location that allows direct file linking. For example, the image can been uploaded to `https://yourwebsite.com/images/logo.png`, making it accessible via a web browser.
 
 4. **Create a JSON Configuration File:**
    You will need to create a JSON file containing the validator's name, logo URL, website, and contact information. This file will later be uploaded to the X1 Testnet smart contract.
@@ -232,10 +232,10 @@ To register your validator's name and icon on the X1 Testnet, follow these detai
    }
    ```
 
-   Important: As a name of the server, do not include any special characters or spaces (e.g. XenPub_1 is valid, but something like "🐧XenPub #1" would not work).
+   Important: As a name of the server, do not include any special characters or spaces (e.g. Validator_1 is valid, but something like "🐧Validator #1" would not work).
 
 5. **Upload the JSON File:**
-   Save the JSON file with a `.json` extension and upload it to your web server. In this example, the file is available at `https://xen.pub/other/x1-validator-1.json`, accessible to anyone with a web browser.
+   Save the JSON file with a `.json` extension and upload it to your web server. The file should be available at `https://yourwebsite.pub/.../validator.json`, accessible to anyone with a web browser.
 
 6. **Update the X1 Testnet Smart Contract:**
    Visit the URL: [X1 Testnet Smart Contract](https://explorer.x1-testnet.xen.network/address/0x891416e8bDB4437d4D0D303781A3828262220581/write-proxy#address-tabs).
@@ -243,7 +243,7 @@ To register your validator's name and icon on the X1 Testnet, follow these detai
 
    <img src="https://github.com/JozefJarosciak/X1/assets/3492464/2af1ab65-6087-4892-affc-fcd87a3938e1" width="50%">
 
-   Enter the URL of your JSON file (e.g., `https://xen.pub/other/x1-validator-1.json`) and press 'Write':
+   Enter the URL of your JSON file (e.g., `https://yourwebsite.com/.../validator.json`) and press 'Write':
 
    <img src="https://github.com/JozefJarosciak/X1/assets/3492464/26ca60d4-853b-4164-b379-92585a404bbc" width="50%">
   
