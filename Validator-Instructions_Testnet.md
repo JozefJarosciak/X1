@@ -25,11 +25,13 @@
 
 ### Step 1: Order Cloud Ubuntu Linux Instance
 The following is the minimum server configuration for an X1 Testnet Validator:
+
 <img src="https://github.com/JozefJarosciak/X1/assets/3492464/adbcf85a-db1f-4e24-a45e-1a59ee5c39ac" width="50%">
 
 Choosing the optimal cloud service can be challenging, as it largely depends on your cloud provider's preferences and budget.
 Nevertheless, referencing Ethereum Mainnet Statistics reveals that Amazon AWS, Hetzner, and OVH are among the top three favoured services.
 This trend might change in the future, but it could serve as a useful guide in selecting a suitable provider:
+
 <img src="https://github.com/JozefJarosciak/X1/assets/3492464/07c70924-9baf-48b0-a85f-06baa50be658" width="50%">
 
 <br><hr><br>
@@ -42,6 +44,7 @@ If you want to create a dedicated and brand new software X1 Testnet Validator Me
 3. Select 'Add a new account' in the subsequent menu.
 4. Enter your preferred name
 5. Hit 'Create' to confirm and you'll be able to see the new account
+   
 <img src="https://github.com/JozefJarosciak/X1/assets/3492464/d67f8c2d-d943-4585-833a-b8d00bc292d2" width="50%">
 
 For additional guidance, visit [Metamask Support](https://support.metamask.io/hc/en-us/articles/360015289452-How-to-add-accounts-in-your-wallet).
@@ -328,5 +331,5 @@ You should see the system as active and running:
 ### The End
 Congratulations, you are now running an X1 validator node! Make sure to keep your node up and running 24 hours a day. 
 
-Fellow Xenians, if this guide helped, consider donation: https://xen.pub/donate.php
+Fellow Xenians, if this guide helped, consider a donation: https://xen.pub/donate.php or delegate your XN with XenPub validators.
 
