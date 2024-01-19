@@ -190,10 +190,10 @@ x1 --testnet --validator.id VALIDATOR_ID --validator.pubkey VALIDATOR_PUBKEY --x
 ```
 Note: You can also attach --validator.password ~/.x1/.password
 
-For example, if you're the validator number 19 and your public key looks something like this: 0xc004569...1e74943bb4. You'd use the following command:
+For example, if you're the validator number 24 and your public key looks something like this: 0xc004569...1e74943bb4. You'd use the following command:
 
 ```bash
-./build/x1 --testnet  --validator.id 19 --validator.pubkey 0xc004569...1e74943bb4 --xenblocks-endpoint ws://xenblocks.io:6668 --gcmode full --syncmode snap
+./build/x1 --testnet  --validator.id 24 --validator.pubkey 0xc004569...1e74943bb4 --xenblocks-endpoint ws://xenblocks.io:6668 --gcmode full --syncmode snap
 ```
 
 Once fully synchronized and running, you'd see something like this on your screen:
