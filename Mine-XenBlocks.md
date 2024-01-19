@@ -27,11 +27,6 @@ https://github.com/JozefJarosciak/X1/assets/3492464/3a061c84-4422-44b8-b25f-0315
 
 To use this command for your mining setup, replace `0xca5F023af4F822353A563Ae6a3591bA2024495E8` with your EIP-55 account address and `0` with your desired dev fee percentage.
 
-For example:
+Example:
 
-```bash
-echo -e "your_EIP-55_address_here
-your_dev_fee_here" | ./xenblocksMiner
-```
-
-Replace `your_EIP-55_address_here` with your EIP-55 address and `your_dev_fee_here` with your desired dev fee.
+![image](https://github.com/JozefJarosciak/X1/assets/3492464/1d867356-8e02-41c5-8fe8-5b28f1d8b36d)
