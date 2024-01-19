@@ -7,8 +7,7 @@ Learn how to automate the XenBlocks Miner using a single command line that autom
 The command provided below automates the process of downloading, extracting, making the XenBlocks Miner executable, and running it with predefined user inputs (EIP-55 address and dev fee).
 
 ```bash
-wget https://github.com/woodysoil/XenblocksMiner/releases/download/v1.1/xenblocksMiner-v1.1.1-Linux-x86_64.tar.gz && tar -vxzf xenblocksMiner-v1.1.1-Linux-x86_64.tar.gz && chmod +x xenblocksMiner && echo -e "0xca5F023af4F822353A563Ae6a3591bA2024495E8
-0" | ./xenblocksMiner
+wget https://github.com/woodysoil/XenblocksMiner/releases/download/v1.1/xenblocksMiner-v1.1.1-Linux-x86_64.tar.gz && tar -vxzf xenblocksMiner-v1.1.1-Linux-x86_64.tar.gz && chmod +x xenblocksMiner && echo -e "0xca5F023af4F822353A563Ae6a3591bA2024495E8\n0" | ./xenblocksMiner
 ```
 
 ## Video Demo
