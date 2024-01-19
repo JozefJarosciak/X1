@@ -1,21 +1,20 @@
 # X1 Blockchain Node Instructions
 
-## Overview
-
-This repository is dedicated to hosting instructions for setting up and running both read-only and full validator nodes on the X1 blockchain. 
-
-The focus, at present, is to provide detailed guidelines for the Testnet phase of the X1 blockchain.
-
-As the X1 blockchain progresses toward its Mainnet launch, we will update this repository with relevant instructions.
-
-<br><br><br>
-
 ## How-To: Set Up Your X1 Testnet Validator 
 Detailed instructions for the read-only node and full validator node (for more active involvement) are posted at the link below:
 
 - **Testnet Instructions:** https://github.com/JozefJarosciak/X1/blob/main/Validator-Instructions_Testnet.md
 
-<br><br><br>
+<br><br>
+
+
+## How-To: Mine XenBlocks with 1 line of Code:
+Learn how to automate the XenBlocks Miner using a single command line that automatically prefills your ETH address as well as Dev Fee.
+
+- **XenBlock Mining Instructions:** https://github.com/JozefJarosciak/X1/blob/main/Mine-XenBlocks.md
+
+<br><br>
+
 
 ## Other URLs
 
