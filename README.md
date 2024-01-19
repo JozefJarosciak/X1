@@ -1,5 +1,7 @@
 # X1 Blockchain Node Instructions
 
+<br><br>
+
 ## How-To: Set Up Your X1 Testnet Validator 
 Detailed instructions for the read-only node and full validator node (for more active involvement) are posted at the link below:
 
