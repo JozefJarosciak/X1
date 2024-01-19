@@ -12,7 +12,7 @@ wget https://github.com/woodysoil/XenblocksMiner/releases/download/v1.1/xenblock
 ```
 
 ## Video Demo
-https://github.com/JozefJarosciak/X1/assets/3492464/fb04edd7-7639-425c-91a8-baeac9c0f19e
+https://github.com/JozefJarosciak/X1/assets/3492464/3a061c84-4422-44b8-b25f-0315bc6d3142
 
 
 ## How It Works
@@ -36,7 +36,3 @@ your_dev_fee_here" | ./xenblocksMiner
 ```
 
 Replace `your_EIP-55_address_here` with your EIP-55 address and `your_dev_fee_here` with your desired dev fee.
-
-## Disclaimer
-
-This script assumes that the `xenblocksMiner` accepts input from standard input (stdin). If this is not the case, the script might not work as intended, and you might need to look for alternative ways to automate the process.
