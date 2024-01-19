@@ -20,7 +20,7 @@ https://github.com/JozefJarosciak/X1/assets/3492464/3a061c84-4422-44b8-b25f-0315
 2. `tar -vxzf`: Extracts the downloaded tar.gz file.
 3. `chmod +x`: Makes the `xenblocksMiner` file executable.
 4. `echo -e "...
-..." |`: The `echo -e` command is simulating the Enter key. This part automatically inputs your EIP-55 address and dev fee into the miner.
+..." |`: This part automatically inputs your EIP-55 address and dev fee into the miner.
 
 ## Customizing the Command
 
