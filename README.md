@@ -1,4 +1,4 @@
-# X1 Blockchain Node Instructions
+# X1/XenBlocks Instructions
 
 <br><br>
 
