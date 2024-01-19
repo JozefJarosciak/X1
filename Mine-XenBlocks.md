@@ -1,6 +1,6 @@
 
 # XENBLOCKS - Effortless GPU Mining with 1 line of Code
-This repository explains how to automate the initial setup and running of the XenBlocks Miner using a single command line that automatically prefills your ETH address as well as Dev Fee.
+Learn how to automate the XenBlocks Miner using a single command line that automatically prefills your ETH address as well as Dev Fee.
 
 ## One-Liner Command
 
