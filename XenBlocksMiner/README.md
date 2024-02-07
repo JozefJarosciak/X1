@@ -33,7 +33,7 @@ To use XenbBlocksMiner, run the following commands in your terminal:
 
 ## Configuration
 
-To update your configuration, use the `--saveConfig` option after setting your parameters.
+To save the configuration on the server so next time it assumes all settings just by running the ./xenbBlocksMiner command automatically, use the `--saveConfig` option after setting your parameters.
 
 For example that mines splits 1% of all fees between 0xYourMinerAddress (0.5%) and WoodySoil (0.5%), while mining 99% of the time for 0xYourMinerAddress:
 ```bash
