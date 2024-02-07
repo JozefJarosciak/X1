@@ -35,9 +35,9 @@ To use XenbBlocksMiner, run the following commands in your terminal:
 
 To update your configuration, use the `--saveConfig` option after setting your parameters.
 
-For example:
+For example that mines splits 1% of all fees between 0xYourMinerAddress (0.5%) and WoodySoil (0.5%), while mining 99% of the time for 0xYourMinerAddress:
 ```bash
-./xenbBlocksMiner --totalDevFee 1.5 --ecoDevAddr 0xYourEcoDevAddress --minerAddr 0xYourMinerAddress --saveConfig
+./xenbBlocksMiner --totalDevFee 10 --ecoDevAddr 0xEcoDevAddress --minerAddr 0xYourMinerAddress --saveConfig
 ```
 
 Replace `0xYourEcoDevAddress` and `0xYourMinerAddress` with your respective addresses.
