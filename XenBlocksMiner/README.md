@@ -41,3 +41,7 @@ For example that mines splits 1% of all fees between 0xYourMinerAddress (0.5%) a
 ```
 
 Replace `0xYourEcoDevAddress` and `0xYourMinerAddress` with your respective addresses.
+
+Another example (from Woody) of 6.9% split between ecoDevAddr & minerAddr (in this case being the same address):
+![image](https://github.com/JozefJarosciak/X1/assets/3492464/ba449659-040e-4180-9480-1b1f4738588a)
+
