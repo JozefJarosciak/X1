@@ -5,7 +5,7 @@ XenbBlocksMiner is a command-line tool for XenBlocks cryptocurrency mining (regu
 Attached is a latest version of the code, with support for switches.
 
 Tool created by WoodySoil, also available at:
-https://github.com/woodysoil/XenblocksMiner/releases/tag/v1.1.2
+https://github.com/woodysoil/XenblocksMiner/releases/tag/v1.1.3
 
 ## Usage
 To use XenbBlocksMiner, run the following commands in your terminal:
