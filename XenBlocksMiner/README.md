@@ -10,7 +10,7 @@ https://github.com/woodysoil/XenblocksMiner/releases/tag/v1.1.2
 ## Usage
 To use XenbBlocksMiner, run the following commands in your terminal:
 
-```bash
+```bash 
 ./xenbBlocksMiner [switch options]
 ```
 
