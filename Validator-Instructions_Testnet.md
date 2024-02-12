@@ -9,6 +9,8 @@
 - [Step 5: Configure X1 Validator in Read-Only Mode](#step-5-configure-x1-validator-in-read-only-mode)
 - [Step 6: Create a new validator key](#step-6-create-a-new-validator-key)
 - [Step 7: Stake 100,000 XN using Metamask](#step-7-stake-100000-xn-using-metamask)
+- [Step 7.1 (Optional): Sync Data](#step-71-optional-sync-data)
+- [Step 7.2 (Optional): Updating an Existing Installation of X1 Full Node](#step-72-optional-updating-an-existing-installation-of-x1-full-node)
 - [Step 8: Start your X1 Validator Node](#step-8-start-your-x1-validator-node)
 - [Step 9: Register Validator Name and Icon](#step-9-register-validator-name-and-icon)
 - [Step 10: Run as a Service](#step-10-run-as-a-service)
@@ -193,7 +195,7 @@ https://pwa-explorer.x1-testnet.xen.network/staking
 <br><hr><br>
 
 
-### Step 7.1: Sync Data
+### Step 7.1 (Optional): Sync Data
 This process may not be necessary, and may take some time depending on your internet speed but it could be quicker than the regular syncing method.
 
 1) Open your terminal and navigate to your home directory:
@@ -205,7 +207,9 @@ This process may not be necessary, and may take some time depending on your inte
     wget --no-check-certificate https://xenblocks.io/snapshots/chaindata1715.pruned.tar
     ```
 
-### 7.2 Updating an Existing Installation of X1 Full Node (can be skipped if you're doing the first time install)
+### Step 7.2 (Optional): Updating an Existing Installation of X1 Full Node 
+
+This step can be skipped if you're doing the first time installation.
 
 If you are updating an existing X1 full node installation, follow the instructions below.
 
