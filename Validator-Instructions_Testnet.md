@@ -83,30 +83,38 @@ sudo su
 ```
 
 ```bash
-# Run system update
-apt update -y
+# Update your package lists and upgrade the system
+apt-get update && apt-get upgrade -y
 ```
 <img src="https://github.com/JozefJarosciak/X1/assets/3492464/a6a55730-fa35-4fef-9f1c-2f768cb48f56" width="50%">
 
 ```bash
 # Install dependencies (ex: ubuntu)
-apt install -y golang wget git make
+apt install -y golang python3 python3-pip git nano wget jq tmux moreutils wine htop sudo vim make
 ```
 <img src="https://github.com/JozefJarosciak/X1/assets/3492464/19a76602-e669-4dd9-9f08-f4b7d11d73f4" width="50%">
 
 ```bash
 # Clone and build the X1 binary
-git clone --branch x1 https://github.com/FairCrypto/go-x1
+sudo git clone --branch x1 https://github.com/FairCrypto/go-x1 && sudo wget https://go.dev/dl/go1.21.4.linux-amd64.tar.gz && sudo tar -C /usr/local -xzf go1.21.4.linux-amd64.tar.gz && export PATH=$PATH:/usr/local/go/bin && source ~/.profile && source ~/.bashrc
 ```
 <img src="https://github.com/JozefJarosciak/X1/assets/3492464/8d38bd21-7e50-4b4b-87c3-2e424656a1a5" width="50%">
 
+
 ```bash
+# Give necessary permissions, tidy up the Go modules, build and copy to bin
+cd && chmod -R 777 go-x1 && cd go-x1 && go mod tidy
+```
+
+```bash
+# Build X1
 cd go-x1
 make x1
 ```
 <img src="https://github.com/JozefJarosciak/X1/assets/3492464/c0409b49-f418-4813-8003-a600531f1671" width="50%">
 
 ```bash
+# Copy to bin
 cp build/x1 /usr/local/bin
 ```
 <img src="https://github.com/JozefJarosciak/X1/assets/3492464/d730ae85-5b84-418f-9d68-860678859091" width="50%">
@@ -139,6 +147,7 @@ If your goal is to operate an X1 Testnet Validator node and you have confirmed t
 <img src="https://github.com/JozefJarosciak/X1/assets/3492464/1966c91c-99ff-4fa3-87ad-8347b8d840f0" width="50%">
 
 <br><hr><br>
+
 
 ### Step 6: Create a new validator key
 
@@ -179,6 +188,82 @@ https://pwa-explorer.x1-testnet.xen.network/staking
 
 <img src="https://github.com/JozefJarosciak/X1/assets/3492464/c8b3b702-e363-4ab8-9d7a-7d65c6dca514" width="50%">
 
+
+
+<br><hr><br>
+
+
+### Step 7.1: Sync Data
+This process may not be necessary, and may take some time depending on your internet speed but it could be quicker than the regular syncing method.
+
+1) Open your terminal and navigate to your home directory:
+    ```
+    cd
+    ```
+2) Download the snapshot:
+    ```
+    wget --no-check-certificate https://xenblocks.io/snapshots/chaindata1715.pruned.tar
+    ```
+
+### 7.2 Updating an Existing Installation of X1 Full Node (can be skipped if you're doing the first time install)
+
+If you are updating an existing X1 full node installation, follow the instructions below.
+
+0) Open your terminal and navigate to your home directory:
+    ```
+    cd
+    ```
+1) Backup your validator keys:
+    ```
+    cp -r ~/.x1/keystore ~/
+    ```
+2) Remove your existing chaindata:
+    ```
+    rm -rf ~/.x1/chaindata
+    ```
+3) Remove the existing go-x1 directory:
+    ```
+    rm -rf ~/.x1/go-x1
+    ```
+4) Extract the downloaded snapshot:
+    ```
+    tar -xvf chaindata1715.pruned.tar
+    ```
+5) Navigate to the go-x1 directory and stash any changes you've made:
+    ```
+    cd && cd go-x1
+    git stash
+    ```
+6) Pull the latest changes from the repository:
+    ```
+    git pull
+    ```
+7) Checkout the x1 branch (double-check if this is the most current version):
+    ```
+    git checkout x1
+    ```
+8) Pop the changes you've stashed:
+    ```
+    git stash pop
+    ```
+9) Tidy up the Go modules:
+    ```
+    go mod tidy
+    ```
+10) Make x1:
+    ```
+    make x1
+    ```
+11) Copy the x1 binary to your bin directory:
+    ```
+    sudo cp build/x1 /usr/local/bin
+    ```
+12) Navigate to your home directory:
+    ```
+    cd
+    ```
+
+
 <br><hr><br>
 
 ### Step 8: Start your X1 Validator Node
@@ -186,9 +271,17 @@ https://pwa-explorer.x1-testnet.xen.network/staking
 Ensure your node is stopped, and add the --validator.id and --validator.pubkey flags to your node's command line:
 
 ```bash
+clear && cd && cd go-x1
 x1 --testnet --validator.id VALIDATOR_ID --validator.pubkey VALIDATOR_PUBKEY --xenblocks-endpoint ws://xenblocks.io:6668 --gcmode full --syncmode snap
 ```
-Note: You can also attach --validator.password ~/.x1/.password
+
+Cache start (suggested):
+```bash
+clear && cd && cd go-x1
+x1 --testnet  --validator.id (enter your validator ID here, just the numbers) --validator.pubkey (Enter your pub key here) --xenblocks-endpoint ws://xenblocks.io:6668 --gcmode full --syncmode full --cache (enter your available cash here, you can run it first without the cache flag, so just get rid of the flag entirely on your first start up. Once you start your validator the network will give you your recommended cache value. Stop validator, add your cache flag then start over. this is my flag --cache 16030)
+```
+
+Note: You can also attach --validator.password ~/.x1/.password (but this will keep the password as raw text on your Linux system)
 
 For example, if you're the validator number 24 and your public key looks something like this: 0xc004569...1e74943bb4. You'd use the following command:
 
@@ -258,28 +351,9 @@ To register your validator's name and icon on the X1 Testnet, follow these detai
 ### Step 10: Run as a Service
 
 This last step is not required, but if you want to run X1 Validator as a service that automatically starts on boot, and restarts on failure, you can follow the below instructions.
-<i>Note: This method is not recommended, as it exposes your validator key password in a flat file.</i>
+<i>Note: This method is okay, just note that through the use t exposes your validator key password in a flat file.</i>
 
-Create a new file 'automate_x1.sh'
-
-```bash
-sudo nano /root/go-x1/automate_x1.sh
-```
-
-Add the following content. Replace YOUR_PUBLIC_KEY_VALIDATOR_PASSWORD without your validator key password.
-
-```bash
-#!/usr/bin/expect
-set timeout -1
-spawn /root/go-x1/build/x1 --testnet --validator.id YOURID --validator.pubkey 0xc004....
-expect "Passphrase:"
-send -- "YOUR_PUBLIC_KEY_VALIDATOR_PASSWORD\r"
-expect eof
-```
-
-<img src="https://github.com/JozefJarosciak/X1/assets/3492464/aa10e679-c0c6-4f88-ac43-6efac68d2798" width="50%">
-
-Now, let's create a service file a new file 'x1-testnet.service':
+Let's create a service file a new file 'x1-testnet.service':
 
 ```bash
 sudo nano /etc/systemd/system/x1-testnet.service
@@ -295,7 +369,7 @@ After=network.target
 [Service]
 Type=simple
 User=root
-ExecStart=/usr/bin/expect /root/go-x1/automate_x1.sh
+ExecStart=/root/go-x1/build/x1 --testnet --validator.id YOURID --validator.pubkey 0xc004.... --validator.password ~/.x1/.password ... rest of your start script
 WorkingDirectory=/root/go-x1
 
 [Install]
@@ -304,11 +378,6 @@ WantedBy=multi-user.target
 
 <img src="https://github.com/JozefJarosciak/X1/assets/3492464/ca9bf1ca-3f58-4bd2-a095-fe60a5e31d8e" width="50%">
 
-
-Ensure 'expect' is installed:
-```bash
-sudo apt-get install expect
-```
 
 Now, reload services, enable the new service and start it.
 ```bash
