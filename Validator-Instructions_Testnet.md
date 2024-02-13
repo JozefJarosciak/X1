@@ -30,6 +30,8 @@ The following is the minimum server configuration for an X1 Testnet Validator:
 
 <img src="https://github.com/JozefJarosciak/X1/assets/3492464/adbcf85a-db1f-4e24-a45e-1a59ee5c39ac" width="50%">
 
+In terms of operating system, I would aim at minimum for Ubuntu 22.04.3 LTS (Jammy Jellyfish) that has a long term support.
+
 Choosing the optimal cloud service can be challenging, as it largely depends on your cloud provider's preferences and budget.
 Nevertheless, referencing Ethereum Mainnet Statistics reveals that Amazon AWS, Hetzner, and OVH are among the top three favoured services.
 This trend might change in the future, but it could serve as a useful guide in selecting a suitable provider:
@@ -76,58 +78,72 @@ However, there's no cause for concern, as you'll have the opportunity to establi
 
 ### Step 4: Configure X1 Validator
 
-Now, connect to your Ubuntu server.
+Now, connect to your Ubuntu server. In the examples below, I am using: Ubuntu Linux 22.04.3.
 Once logged into the Ubuntu server, configure the X1 Testnet Blockchain following [these instructions](https://github.com/FairCrypto/go-x1) or the steps below:
 
+Login as root.
 ```bash
-# Login as root
 sudo su
 ```
 
+Update your package lists and upgrade the system.
 ```bash
-# Update your package lists and upgrade the system
 apt-get update && apt-get upgrade -y
 ```
 <img src="https://github.com/JozefJarosciak/X1/assets/3492464/a6a55730-fa35-4fef-9f1c-2f768cb48f56" width="50%">
 
+
+Double check that you're in the /home/ubuntu directory.
+You should see the response: /home/ubuntu.
 ```bash
-# Install dependencies (ex: ubuntu)
+pwd
+```
+
+If you're not in /home/ubuntu directory, run:
+```bash
+cd /home/ubuntu
+```
+
+Install dependencies and other useful tools.
+```bash
 apt install -y golang python3 python3-pip git nano wget jq tmux moreutils wine htop sudo vim make
 ```
 <img src="https://github.com/JozefJarosciak/X1/assets/3492464/19a76602-e669-4dd9-9f08-f4b7d11d73f4" width="50%">
 
+Clone and build the X1 binary. This command sequence clones the x1 branch of the go-x1 repository from GitHub, downloads the Go 1.21.4 Linux binary, extracts it to /usr/local, adds Go to the system PATH, and then reloads the .profile and .bashrc files to update the current shell environment with the new PATH.
 ```bash
-# Clone and build the X1 binary
-sudo git clone --branch x1 https://github.com/FairCrypto/go-x1 && sudo wget https://go.dev/dl/go1.21.4.linux-amd64.tar.gz && sudo tar -C /usr/local -xzf go1.21.4.linux-amd64.tar.gz && export PATH=$PATH:/usr/local/go/bin && source ~/.profile && source ~/.bashrc
+git clone --branch x1 https://github.com/FairCrypto/go-x1 && sudo wget https://go.dev/dl/go1.21.4.linux-amd64.tar.gz && sudo tar -C /usr/local -xzf go1.21.4.linux-amd64.tar.gz && export PATH=$PATH:/usr/local/go/bin && source ~/.profile && source ~/.bashrc
 ```
 <img src="https://github.com/JozefJarosciak/X1/assets/3492464/8d38bd21-7e50-4b4b-87c3-2e424656a1a5" width="50%">
 
 
+The following command sets the permissions of the go-x1 directory and all its contents to 777 (read, write, execute for all users), navigates into the go-x1 directory, and then runs go mod tidy to clean up the module's dependencies.
 ```bash
-# Give necessary permissions, tidy up the Go modules, build and copy to bin
-cd && chmod -R 777 go-x1 && cd go-x1 && go mod tidy
+chmod -R 777 go-x1 && cd go-x1 && go mod tidy
 ```
 
+The next command compiles and builds the X1.
 ```bash
-# Build X1
-cd go-x1
 make x1
 ```
 <img src="https://github.com/JozefJarosciak/X1/assets/3492464/c0409b49-f418-4813-8003-a600531f1671" width="50%">
 
+
+Now, let's copy the x1 executable from the build directory to the /usr/local/bin directory, making it accessible system-wide as a command.
 ```bash
-# Copy to bin
 cp build/x1 /usr/local/bin
 ```
 <img src="https://github.com/JozefJarosciak/X1/assets/3492464/d730ae85-5b84-418f-9d68-860678859091" width="50%">
 
 Your Testnet Validator is now successfully installed!
 
+
 <br><hr><br>
 
-### Step 5: Configure X1 Validator in Read-Only Mode
-Let's first see if we can run the X1 Testnet node in the read-only mode with Xenblocks reporting enabled and also let's sync the database.
-Run the following command:
+### Step 5 (Optional): Configure X1 Validator to run in Read-Only Mode
+If you do not wish to run the full X1 Testnet Validator node, you can finish with the following step and run your validator in the read-only mode with Xenblocks reporting enabled.
+
+To do so, run the following command:
 ```bash
 x1 --testnet --syncmode snap --xenblocks-endpoint ws://xenblocks.io:6668
 ```
@@ -153,7 +169,7 @@ If your goal is to operate an X1 Testnet Validator node and you have confirmed t
 
 ### Step 6: Create a new validator key
 
-To create a validator private key to sign consensus messages, use the below command.
+If you don't have the existing validator private key to sign the consensus messages, we need to first create one. This is critical step in order to run a full X1 validator.
 After entering the command, you will be prompted to enter a password—use a strong one! 
 You can, for example, use a password manager to generate a strong password to secure your wallet.
 
@@ -164,20 +180,20 @@ x1 validator new
 <img src="https://github.com/JozefJarosciak/X1/assets/3492464/8b18bb33-53bb-4908-b1a6-2c799b61d645" width="50%">
 
 Remember to make a note of the validator public key (indicated by the red arrow in the image above, as it will be required in STEP 7) and also make sure to securely save your validator key password (you will need this password each time you start the validator).
+The path of the actual secret key file should be pointing to: /root/.x1/keystore/validator/...
 
 <br><hr><br>
 
 ### Step 7: Stake 100,000 XN using Metamask
 
-Navigate to the SFC Contract on the explorer:
+Navigate to the SFC Contract (Write part) on the explorer:
 https://explorer.x1-testnet.xen.network/address/0xFC00FACE00000000000000000000000000000000/write-contract#address-tabs
 
-
-Click the "Connect wallet" button and connect to your validator wallet.
+Click the "Connect wallet" button at the top, and connect to the wallet, that has at least 100,000 XN in it.
 
 <img src="https://github.com/JozefJarosciak/X1/assets/3492464/8cfaaeb2-f4fe-46c0-8405-edecbc0f6b2d" width="50%">
 
-Enter your validator public key and the amount of XN you want to stake, then click "Write".
+Once connected, go to #4 function called: **createValidator** and enter your validator public key and the amount of XN you want to stake, then click "Write".
 
 <img src="https://github.com/JozefJarosciak/X1/assets/3492464/a1af478d-0342-4aba-8ab1-98c48d34b75d" width="50%">
 
@@ -185,37 +201,43 @@ Confirm the transaction in your wallet (note: this will deduct 100,000 XN from y
 
 ![image](https://github.com/JozefJarosciak/X1/assets/3492464/83c075a5-835a-4390-8f32-e044dc6bd8c1)
 
-Verify that your validator is registered by looking up your validator ID on the PWA explorer at:
-https://pwa-explorer.x1-testnet.xen.network/staking
+Now, we need to retrieve your Validator ID. This is critical to run the full X1 validator node.
+Navigate to the SFC Contract (Read part) on the explorer:
+https://explorer.x1-testnet.xen.network/address/0xFC00FACE00000000000000000000000000000000/read-contract#address-tabs
+Go to #18 function called: ** getValidatorID** and enter your Ethereum wallet address and press 'Query' button.
 
-<img src="https://github.com/JozefJarosciak/X1/assets/3492464/c8b3b702-e363-4ab8-9d7a-7d65c6dca514" width="50%">
-
+Then Mark down the Validator ID, the number that was provided to you. 
 
 
 <br><hr><br>
 
 
-### Step 7.1 (Optional): Sync Data
-This process may not be necessary, and may take some time depending on your internet speed but it could be quicker than the regular syncing method.
+### Step 7.1: Sync Data
+This process may not be necessary, and may take some time depending on your internet speed, but it could be quicker than the regular syncing method.
 
 1) Open your terminal and navigate to your home directory:
     ```
-    cd
+    cd /home/ubuntu
     ```
 2) Download the snapshot:
     ```
     wget --no-check-certificate https://xenblocks.io/snapshots/chaindata1715.pruned.tar
     ```
 
+3) Extract the downloaded snapshot:     
+   ```
+   tar -xvf chaindata1715.pruned.tar -C /root
+   ```
+
 ### Step 7.2 (Optional): Updating an Existing Installation of X1 Full Node 
 
-This step can be skipped if you're doing the first time installation.
+Skip this step if you're doing the first time installation.
 
 If you are updating an existing X1 full node installation, follow the instructions below.
 
 0) Open your terminal and navigate to your home directory:
     ```
-    cd
+    cd /home/ubuntu
     ```
 1) Backup your validator keys:
     ```
@@ -231,7 +253,7 @@ If you are updating an existing X1 full node installation, follow the instructio
     ```
 4) Extract the downloaded snapshot:
     ```
-    tar -xvf chaindata1715.pruned.tar
+    tar -xvf chaindata1715.pruned.tar -C /root
     ```
 5) Navigate to the go-x1 directory and stash any changes you've made:
     ```
@@ -272,25 +294,52 @@ If you are updating an existing X1 full node installation, follow the instructio
 
 ### Step 8: Start your X1 Validator Node
 
-Ensure your node is stopped, and add the --validator.id and --validator.pubkey flags to your node's command line:
+Let's create your password file.
+This is not necessary, but it simplifies the creation of the X1 service.
+It also allows us to automatically start the X1 node, rather than entering your password every time you restart the server.
 
+Replace YOUR_PASSWORD with your password:
 ```bash
-clear && cd && cd go-x1
-x1 --testnet --validator.id VALIDATOR_ID --validator.pubkey VALIDATOR_PUBKEY --xenblocks-endpoint ws://xenblocks.io:6668 --gcmode full --syncmode snap
+echo "YOUR_PASSWORD" > ~/.x1/.password
 ```
 
-Cache start (suggested):
+Double check that the file is there and your password is inside it. 
+Note: The location of the file should be in /root/.x1/.password
 ```bash
-clear && cd && cd go-x1
-x1 --testnet  --validator.id (enter your validator ID here, just the numbers) --validator.pubkey (Enter your pub key here) --xenblocks-endpoint ws://xenblocks.io:6668 --gcmode full --syncmode full --cache (enter your available cash here, you can run it first without the cache flag, so just get rid of the flag entirely on your first start up. Once you start your validator the network will give you your recommended cache value. Stop validator, add your cache flag then start over. this is my flag --cache 16030)
+nano ~/.x1/.password
 ```
 
-Note: You can also attach --validator.password ~/.x1/.password (but this will keep the password as raw text on your Linux system)
 
-For example, if you're the validator number 24 and your public key looks something like this: 0xc004569...1e74943bb4. You'd use the following command:
+Ensure your node is stopped (in case it's running) and let's clear the terminal screen, change to our home directory, and navigates into the go-x1 directory within the home directory.
+```bash
+clear && cd /home/ubuntu && cd go-x1
+```
+
+Now, let's start the X1 validator node!
+
+Ensure your node is stopped (in case it's running). 
+
+- Add the --validator.id (we've collected this earlier from SFC Contract).
+- Add --validator.pubkey.
+- Add --validator.password 
+, flags to your node's command line:
+
+Execute this and prepare to stop the validator within a couple of seconds after start.
+```
+x1 --testnet --validator.id VALIDATOR_ID --validator.pubkey VALIDATOR_PUBKEY --validator.password ~/.x1/.password --xenblocks-endpoint ws://xenblocks.io:6668 --gcmode full --syncmode snap
+```
+
+As you could see, when we started the Validator by using the above command line, it warned us about allocating more cache, that looked something like this:
+```
+WARN [02-13|16:10:37.405] Please add '--cache 32034' flag to allocate more cache for X1. Total memory is 64068 MB.
+```
+
+The --cache suggested amount will likely differ from server to server. 
+
+So take a note of your --cache number and let's improve our validator, running with the --cache variable (suggested method).
 
 ```bash
-./build/x1 --testnet  --validator.id 24 --validator.pubkey 0xc004569...1e74943bb4 --xenblocks-endpoint ws://xenblocks.io:6668 --gcmode full --syncmode snap
+x1 --testnet --validator.id VALIDATOR_ID --validator.pubkey VALIDATOR_PUBKEY --validator.password ~/.x1/.password --xenblocks-endpoint ws://xenblocks.io:6668 --gcmode full --syncmode snap --cache YOUR_CACHE_RESULT
 ```
 
 Once fully synchronized and running, you'd see something like this on your screen:
@@ -298,6 +347,7 @@ Once fully synchronized and running, you'd see something like this on your scree
 <img src="https://github.com/JozefJarosciak/X1/assets/3492464/de820bca-84eb-4d49-8b71-f33acd0d24e1" width="50%">
 
 <br><hr><br>
+
 
 ### Step 9: Register Validator Name and Icon
 
@@ -335,7 +385,7 @@ To register your validator's name and icon on the X1 Testnet, follow these detai
    Important: As a name of the server, do not include any special characters or spaces (e.g. Validator_1 is valid, but something like "🐧Validator #1" would not work).
 
 5. **Upload the JSON File:**
-   Save the JSON file with a `.json` extension and upload it to your web server. The file should be available at `https://yourwebsite.pub/.../validator.json`, accessible to anyone with a web browser.
+   Save the JSON file with a `.json` extension and upload it to your web server. The file should be available at `https://yourwebsite.com/.../validator.json`, accessible to anyone with a web browser.
 
 6. **Update the X1 Testnet Smart Contract:**
    Visit the URL: [X1 Testnet Smart Contract](https://explorer.x1-testnet.xen.network/address/0x891416e8bDB4437d4D0D303781A3828262220581/write-proxy#address-tabs).
@@ -360,7 +410,7 @@ This last step is not required, but if you want to run X1 Validator as a service
 Let's create a service file a new file 'x1-testnet.service':
 
 ```bash
-sudo nano /etc/systemd/system/x1-testnet.service
+nano /etc/systemd/system/x1-testnet.service
 ```
 
 Add the following content:
@@ -373,8 +423,8 @@ After=network.target
 [Service]
 Type=simple
 User=root
-ExecStart=/root/go-x1/build/x1 --testnet --validator.id YOURID --validator.pubkey 0xc004.... --validator.password ~/.x1/.password ... rest of your start script
-WorkingDirectory=/root/go-x1
+ExecStart=/home/ubuntu/go-x1/build/x1 --testnet --validator.id VALIDATOR_ID --validator.pubkey VALIDATOR_PUBKEY --validator.password /root/.x1/.password --xenblocks-endpoint ws://xenblocks.io:6668 --gcmode full --syncmode snap --cache YOUR_CACHE_RESULT
+WorkingDirectory=/home/ubuntu/go-x1
 
 [Install]
 WantedBy=multi-user.target
@@ -396,8 +446,14 @@ sudo systemctl status x1-testnet.service
 ```
 
 You should see the system as active and running:
-
 <img src="https://github.com/JozefJarosciak/X1/assets/3492464/964f9ae8-13aa-49cc-9f96-57bb1a2cb917" width="50%">
+
+If you want you can monitor your service in real-time by using journalctrl:
+
+```bash
+sudo journalctl -u x1-testnet.service -f --output=cat
+```
+
 
 <br><hr><br>
 
