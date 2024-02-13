@@ -470,5 +470,5 @@ sudo journalctl -u x1-testnet.service -f --output=cat
 ### The End
 Congratulations, you are now running an X1 validator node! Make sure to keep your node up and running 24 hours a day.
 
-Fellow Xenians, if this guide helped, consider a donation: https://xen.pub/donate.php or delegate your XN with XenPub validators.
+Fellow Xenians, if this guide helped, consider a donation: https://xen.pub/donate.php or delegate your XN with XenPub Testnet validator: https://pwa-explorer.x1-testnet.xen.network/validator/0xca5f023af4f822353a563ae6a3591ba2024495e8
 
