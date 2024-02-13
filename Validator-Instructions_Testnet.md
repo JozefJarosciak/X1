@@ -6,10 +6,10 @@
 - [Step 2: Create a New Metamask Wallet](#step-2-create-a-new-metamask-wallet)
 - [Step 3: Fill up the X1 Testnet Validator Application Form](#step-3-fill-up-the-x1-testnet-validator-application-form)
 - [Step 4: Configure X1 Validator](#step-4-configure-x1-validator)
-- [Step 5: Configure X1 Validator in Read-Only Mode](#step-5-configure-x1-validator-in-read-only-mode)
+- [Step 5 (Optional): Configure X1 Validator to run in Read-Only Mode](#step-5-optional-configure-x1-validator-to-run-in-read-only-mode)
 - [Step 6: Create a new validator key](#step-6-create-a-new-validator-key)
 - [Step 7: Stake 100,000 XN using Metamask](#step-7-stake-100000-xn-using-metamask)
-- [Step 7.1 (Optional): Sync Data](#step-71-optional-sync-data)
+- [Step 7.1: Sync Data](#step-71-sync-data)
 - [Step 7.2 (Optional): Updating an Existing Installation of X1 Full Node](#step-72-optional-updating-an-existing-installation-of-x1-full-node)
 - [Step 8: Start your X1 Validator Node](#step-8-start-your-x1-validator-node)
 - [Step 9: Register Validator Name and Icon](#step-9-register-validator-name-and-icon)
@@ -48,7 +48,7 @@ If you want to create a dedicated and brand new software X1 Testnet Validator Me
 3. Select 'Add a new account' in the subsequent menu.
 4. Enter your preferred name
 5. Hit 'Create' to confirm and you'll be able to see the new account
-   
+
 <img src="https://github.com/JozefJarosciak/X1/assets/3492464/d67f8c2d-d943-4585-833a-b8d00bc292d2" width="50%">
 
 For additional guidance, visit [Metamask Support](https://support.metamask.io/hc/en-us/articles/360015289452-How-to-add-accounts-in-your-wallet).
@@ -70,8 +70,8 @@ URLs:
 - Application form: [Google Form](https://docs.google.com/forms/d/e/1FAIpQLSdnDAmXrGMKauEqNEpBI8HRhF1L33YkqL5f629cehxU_EyffA/viewform)
 - More details in Jack's tweet: [Twitter](https://twitter.com/mrJackLevin/status/1745573668212924719)
 
-After ensuring your validator wallet has sufficient XN, you're ready to move on to STEP 4. 
-If you're currently low on XN, you can still advance to STEP 4, but be aware that the instructions provided will only take you up to Step 5. 
+After ensuring your validator wallet has sufficient XN, you're ready to move on to STEP 4.
+If you're currently low on XN, you can still advance to STEP 4, but be aware that the instructions provided will only take you up to Step 5.
 However, there's no cause for concern, as you'll have the opportunity to establish a read-only node and operate it while awaiting the XN airdrop.
 
 <br><hr><br>
@@ -170,7 +170,7 @@ If your goal is to operate an X1 Testnet Validator node and you have confirmed t
 ### Step 6: Create a new validator key
 
 If you don't have the existing validator private key to sign the consensus messages, we need to first create one. This is critical step in order to run a full X1 validator.
-After entering the command, you will be prompted to enter a password—use a strong one! 
+After entering the command, you will be prompted to enter a password—use a strong one!
 You can, for example, use a password manager to generate a strong password to secure your wallet.
 
 ```bash
@@ -229,12 +229,12 @@ This process may not be necessary and may take some time depending on your inter
 ![image](https://github.com/JozefJarosciak/X1/assets/3492464/3b461b8c-5281-4577-980b-06b5d726d08c)
 
 
-3) Extract the downloaded snapshot:     
+3) Extract the downloaded snapshot:
    ```
    tar -xvf chaindata1715.pruned.tar -C /root
    ```
 
-### Step 7.2 (Optional): Updating an Existing Installation of X1 Full Node 
+### Step 7.2 (Optional): Updating an Existing Installation of X1 Full Node
 
 Skip this step if you're doing a first-time installation.
 
@@ -308,7 +308,7 @@ Replace YOUR_PASSWORD with your password:
 echo "YOUR_PASSWORD" > ~/.x1/.password
 ```
 
-Double-check that the file is there and your password is inside it. 
+Double-check that the file is there and your password is inside it.
 Note: The location of the file should be in /root/.x1/.password
 ```bash
 nano ~/.x1/.password
@@ -322,12 +322,12 @@ clear && cd /home/ubuntu && cd go-x1
 
 Now, let's start the X1 validator node!
 
-Ensure your node is stopped (in case it's running). 
+Ensure your node is stopped (in case it's running).
 
 - Add the --validator.id (we've collected this earlier from the SFC Contract).
 - Add --validator.pubkey.
-- Add --validator.password 
-, flags to your node's command line:
+- Add --validator.password
+  , flags to your node's command line:
 
 Execute this and prepare to stop the validator within a couple of seconds after start.
 ```
@@ -342,7 +342,7 @@ WARN [02-13|16:10:37.405] Please add '--cache 32034' flag to allocate more cache
 ![image](https://github.com/JozefJarosciak/X1/assets/3492464/751be850-f7e0-49f9-847e-4d323f2e7a5f)
 
 
-The --cache suggested amount will likely differ from server to server. 
+The --cache suggested amount will likely differ from server to server.
 
 So take note of your --cache number (as shown in the screenshot) and let's improve our validator, running with the --cache variable (suggested method).
 
@@ -363,6 +363,7 @@ To register your validator's name and icon on the X1 Testnet, follow these detai
 
 1. **Create an Icon Image:**
    Design a 100x100 px image with a transparent background. For example, the following logo was created using the Snagit Editor:
+
    <img src="https://github.com/JozefJarosciak/X1/assets/3492464/d3ba09b1-3389-437a-a290-8fa9f5799806" width="50%">
 
 3. **Save and Upload the Image:**
@@ -404,11 +405,11 @@ To register your validator's name and icon on the X1 Testnet, follow these detai
    Enter the URL of your JSON file (e.g., `https://yourwebsite.com/.../validator.json`) and press 'Write':
 
    <img src="https://github.com/JozefJarosciak/X1/assets/3492464/26ca60d4-853b-4164-b379-92585a404bbc" width="50%">
-  
+
    Upon completion, your validator's logo and name will be displayed on the list of validators at [X1 Testnet Staking Explorer](https://pwa-explorer.x1-testnet.xen.network/staking).
 
    <img src="https://github.com/JozefJarosciak/X1/assets/3492464/d633c4fa-8b7f-4c48-be15-dc707c2750d1" width="50%">
-   
+
 
 ### Step 10: Run as a Service
 
@@ -466,7 +467,7 @@ sudo journalctl -u x1-testnet.service -f --output=cat
 <br><hr><br>
 
 ### The End
-Congratulations, you are now running an X1 validator node! Make sure to keep your node up and running 24 hours a day. 
+Congratulations, you are now running an X1 validator node! Make sure to keep your node up and running 24 hours a day.
 
 Fellow Xenians, if this guide helped, consider a donation: https://xen.pub/donate.php or delegate your XN with XenPub validators.
 
