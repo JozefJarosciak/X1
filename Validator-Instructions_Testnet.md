@@ -455,6 +455,7 @@ sudo systemctl status x1-testnet.service
 ```
 
 You should see the system as active and running:
+
 <img src="https://github.com/JozefJarosciak/X1/assets/3492464/964f9ae8-13aa-49cc-9f96-57bb1a2cb917" width="50%">
 
 If you want you can monitor your service in real-time by using journalctrl:
