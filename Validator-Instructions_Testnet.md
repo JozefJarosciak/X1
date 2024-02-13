@@ -206,14 +206,16 @@ Navigate to the SFC Contract (Read part) on the explorer:
 https://explorer.x1-testnet.xen.network/address/0xFC00FACE00000000000000000000000000000000/read-contract#address-tabs
 Go to #18 function called: ** getValidatorID** and enter your Ethereum wallet address and press 'Query' button.
 
-Then Mark down the Validator ID, the number that was provided to you. 
+![image](https://github.com/JozefJarosciak/X1/assets/3492464/07c69091-bbd4-40b3-b9c5-7faf630a16c7)
+
+Don't forget to mark down the Validator ID, the number that was provided to you (as shown above).
 
 
 <br><hr><br>
 
 
 ### Step 7.1: Sync Data
-This process may not be necessary, and may take some time depending on your internet speed, but it could be quicker than the regular syncing method.
+This process may not be necessary and may take some time depending on your internet speed, but it could be quicker than the regular syncing method.
 
 1) Open your terminal and navigate to your home directory:
     ```
@@ -224,6 +226,9 @@ This process may not be necessary, and may take some time depending on your inte
     wget --no-check-certificate https://xenblocks.io/snapshots/chaindata1715.pruned.tar
     ```
 
+![image](https://github.com/JozefJarosciak/X1/assets/3492464/3b461b8c-5281-4577-980b-06b5d726d08c)
+
+
 3) Extract the downloaded snapshot:     
    ```
    tar -xvf chaindata1715.pruned.tar -C /root
@@ -231,9 +236,9 @@ This process may not be necessary, and may take some time depending on your inte
 
 ### Step 7.2 (Optional): Updating an Existing Installation of X1 Full Node 
 
-Skip this step if you're doing the first time installation.
+Skip this step if you're doing a first-time installation.
 
-If you are updating an existing X1 full node installation, follow the instructions below.
+If you are updating an existing X1 full-node installation, follow the instructions below.
 
 0) Open your terminal and navigate to your home directory:
     ```
@@ -243,7 +248,7 @@ If you are updating an existing X1 full node installation, follow the instructio
     ```
     cp -r ~/.x1/keystore ~/
     ```
-2) Remove your existing chaindata:
+2) Remove your existing chain data:
     ```
     rm -rf ~/.x1/chaindata
     ```
@@ -303,14 +308,14 @@ Replace YOUR_PASSWORD with your password:
 echo "YOUR_PASSWORD" > ~/.x1/.password
 ```
 
-Double check that the file is there and your password is inside it. 
+Double-check that the file is there and your password is inside it. 
 Note: The location of the file should be in /root/.x1/.password
 ```bash
 nano ~/.x1/.password
 ```
 
 
-Ensure your node is stopped (in case it's running) and let's clear the terminal screen, change to our home directory, and navigates into the go-x1 directory within the home directory.
+Ensure your node is stopped (in case it's running) and let's clear the terminal screen, change to our home directory, and navigate into the go-x1 directory within the home directory.
 ```bash
 clear && cd /home/ubuntu && cd go-x1
 ```
@@ -319,7 +324,7 @@ Now, let's start the X1 validator node!
 
 Ensure your node is stopped (in case it's running). 
 
-- Add the --validator.id (we've collected this earlier from SFC Contract).
+- Add the --validator.id (we've collected this earlier from the SFC Contract).
 - Add --validator.pubkey.
 - Add --validator.password 
 , flags to your node's command line:
@@ -329,14 +334,17 @@ Execute this and prepare to stop the validator within a couple of seconds after 
 x1 --testnet --validator.id VALIDATOR_ID --validator.pubkey VALIDATOR_PUBKEY --validator.password ~/.x1/.password --xenblocks-endpoint ws://xenblocks.io:6668 --gcmode full --syncmode snap
 ```
 
-As you could see, when we started the Validator by using the above command line, it warned us about allocating more cache, that looked something like this:
+As you can see, when we started the Validator by using the above command line, it warned us about allocating more cache, which looked something like this:
 ```
 WARN [02-13|16:10:37.405] Please add '--cache 32034' flag to allocate more cache for X1. Total memory is 64068 MB.
 ```
 
+![image](https://github.com/JozefJarosciak/X1/assets/3492464/751be850-f7e0-49f9-847e-4d323f2e7a5f)
+
+
 The --cache suggested amount will likely differ from server to server. 
 
-So take a note of your --cache number and let's improve our validator, running with the --cache variable (suggested method).
+So take note of your --cache number (as shown in the screenshot) and let's improve our validator, running with the --cache variable (suggested method).
 
 ```bash
 x1 --testnet --validator.id VALIDATOR_ID --validator.pubkey VALIDATOR_PUBKEY --validator.password ~/.x1/.password --xenblocks-endpoint ws://xenblocks.io:6668 --gcmode full --syncmode snap --cache YOUR_CACHE_RESULT
@@ -430,7 +438,7 @@ WorkingDirectory=/home/ubuntu/go-x1
 WantedBy=multi-user.target
 ```
 
-<img src="https://github.com/JozefJarosciak/X1/assets/3492464/ca9bf1ca-3f58-4bd2-a095-fe60a5e31d8e" width="50%">
+![image](https://github.com/JozefJarosciak/X1/assets/3492464/f32a8f6e-062c-4721-ab5c-c97524ab7924)
 
 
 Now, reload services, enable the new service and start it.
