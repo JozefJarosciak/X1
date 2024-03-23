@@ -431,7 +431,9 @@ After=network.target
 
 [Service]
 Type=simple
+LimitNOFILE=500000
 User=root
+ExecStartPre=/home/ubuntu/go-x1/build/x1 db heal --experimental
 ExecStart=/home/ubuntu/go-x1/build/x1 --testnet --validator.id VALIDATOR_ID --validator.pubkey VALIDATOR_PUBKEY --validator.password /root/.x1/.password --xenblocks-endpoint ws://xenblocks.io:6668 --gcmode full --syncmode snap --cache YOUR_CACHE_RESULT
 WorkingDirectory=/home/ubuntu/go-x1
 
