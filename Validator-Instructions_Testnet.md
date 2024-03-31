@@ -431,10 +431,12 @@ After=network.target
 
 [Service]
 Type=simple
+Restart=always                                                                                                                                                                                 
+RestartSec=30                                                                                                                                                                                  
 LimitNOFILE=500000
 User=root
-ExecStartPre=/usr/local/bin/x1 db heal --experimental
-ExecStart=/usr/local/bin/x1 --testnet --validator.id VALIDATOR_ID --validator.pubkey VALIDATOR_PUBKEY --validator.password /root/.x1/.password --xenblocks-endpoint ws://xenblocks.io:6668 --gcmode full --syncmode snap --cache YOUR_CACHE_RESULT
+ExecStart=/usr/local/bin/x1 --testnet --validator.id VALIDATOR_ID --validator.pubkey VALIDATOR_PUBKEY --validator.password /root/.x1/.password --xenblocks-endpoint ws://xenblocks.io:6668 --gcmode full --syncmode full --cache YOUR_CACHE_RESULT
+ExecStopPost=/bin/sh -c 'if [ "$$EXIT_STATUS" = 1 ]; then /usr/local/bin/x1 db heal --experimental; fi' 
 
 
 [Install]
