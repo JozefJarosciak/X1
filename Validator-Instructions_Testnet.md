@@ -14,6 +14,7 @@
 - [Step 8: Start your X1 Validator Node](#step-8-start-your-x1-validator-node)
 - [Step 9: Register Validator Name and Icon](#step-9-register-validator-name-and-icon)
 - [Step 10: Run as a Service](#step-10-run-as-a-service)
+- [Step 11: Automatically monitor X1 Validator service](#step-11-automatically-monitor-x1-validator-service)
 - [The End](#the-end)
 
 <br><br><br>
@@ -472,7 +473,93 @@ sudo journalctl -u x1-testnet.service -f --output=cat
 ```
 
 
+
 <br><hr><br>
+
+
+
+### Step 11: Automatically monitor X1 Validator service
+
+To enable Health Check flag, add this to your validator start command: 
+
+
+```bash
+--http --http.port 8545
+```
+
+
+Once done, restart validator and test it by running curl against the local 8545 port: 
+
+```bash
+curl http://127.0.0.1:8545/health
+```
+
+If your validator runs correctly, it'll give a response such as this:
+
+```bash
+{"jsonrpc":"2.0","id":1,"result":true}
+```
+
+Open your text editor and create a new file named monitor_service.sh:
+
+```bash
+nano monitor_validator.sh
+```
+
+Copy and paste the following bash script into the editor:
+
+```bash
+#!/bin/bash
+
+# The URL to monitor
+URL="http://127.0.0.1:8545/health"
+
+# The log file to store the check results
+LOG_FILE="$HOME/x1-testnet-monitor.log"
+
+# Fetch the health check result
+RESULT=$(curl -s $URL | jq -r '.result')
+
+# Get the current date and time
+NOW=$(date '+%Y-%m-%d %H:%M:%S')
+
+# Check if the result is not true
+if [ "$RESULT" != "true" ]; then
+  # Restart the x1-testnet service
+  sudo systemctl restart x1-testnet.service
+  # Log the event
+  echo "$NOW: Health check failed, x1-testnet.service restarted" >> $LOG_FILE
+else
+  # Log the successful health check
+  echo "$NOW: Health check successful" >> $LOG_FILE
+fi
+
+```
+
+
+Make the script executable:
+
+```bash
+chmod +x monitor_service.sh
+```
+
+Schedule the Script with Cron. 
+To run the check at your desired intervals, use the cron scheduler.
+
+```bash
+crontab -e
+```
+
+Open the crontab file for editing.
+Add a line to execute the script every 30 minutes. If you prefer to run it hourly, adjust the cron schedule accordingly. Here's how to do it for every 30 minutes:
+```bash
+*/30 * * * * /path/to/monitor_validator.sh
+```
+Save and exit the editor. The cron scheduler will now automatically run your script every 30 minutes.
+
+
+<br><hr><br>
+
 
 ### The End
 Congratulations, you are now running an X1 validator node! Make sure to keep your node up and running 24 hours a day.
