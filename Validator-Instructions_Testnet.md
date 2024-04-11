@@ -480,7 +480,8 @@ sudo journalctl -u x1-testnet.service -f --output=cat
 
 ### Step 11: Automatically monitor X1 Validator service
 
-To enable Health Check flag, add this to your validator start command: 
+This is optional but allows the automatic restart of a failing validator. 
+Note: The following guide relies on the enabled Health Check flag, so, add this to your validator start command: 
 
 
 ```bash
